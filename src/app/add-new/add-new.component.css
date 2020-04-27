@@ -1,0 +1,21 @@
+#price{
+  width: 40%;
+}
+#desc{
+  width: 60%;
+}
+
+textarea.ng-touched.ng-invalid,
+input.ng-touched.ng-invalid {
+  border: #bb0000 1px solid;
+}
+
+span{
+  opacity: 0.7;
+  font-size: 14px;
+  color: #bb0000;
+}
+#year{
+  width: 50%;
+}
+

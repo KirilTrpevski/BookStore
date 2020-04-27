@@ -1,0 +1,12 @@
+img{
+  margin: 0 auto;
+  display: inline-block;
+  float: right;
+  min-width: 250px;
+  min-height: 350px;
+  max-height: 350px;
+  max-width: 250px;
+}
+h1{
+  display: inline-block;
+}

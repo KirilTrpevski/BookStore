@@ -1,0 +1,17 @@
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {Book} from '../../../shared/book.model';
+
+@Component({
+  selector: 'app-success',
+  templateUrl: './success.component.html',
+  styleUrls: ['./success.component.css']
+})
+export class SuccessComponent implements OnInit {
+
+  constructor(@Inject(MAT_DIALOG_DATA) public book: Book) { }
+
+  ngOnInit(): void {
+  }
+
+}

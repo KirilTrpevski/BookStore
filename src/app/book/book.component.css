@@ -1,0 +1,25 @@
+.card:hover{
+  margin: 5px 5px 5px 5px;
+  transition: 0.6s;
+}
+.card{
+  margin: 10px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 8px;
+  box-shadow: 10px 10px 5px grey;
+}
+.card-img-top{
+  min-width: 100px;
+  min-height: 150px;
+  max-width: 100px;
+  max-height: 150px;
+  align-self: center;
+}
+button{
+  margin-top: 5px;
+  display: inline-block;
+}
+#info,strong{
+  padding: 40px;
+}

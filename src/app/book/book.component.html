@@ -1,0 +1,22 @@
+<div class="row justify-content-center" *ngIf="books.length == 0"
+style="margin-top: 20px;">
+  <div class="col-8, col-sm-8 col-md-8 col-lg-8 col-xl-8"
+  style="text-align: center">
+    <app-spinner></app-spinner>
+  </div>
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2" *ngFor="let book of books; let i = index">
+      <div class="card rounded-0" style="width: 12rem;">
+        <img class="card-img-top img-responsive mt-2" src="{{book.image}}" alt="{{book.title}}">
+        <div class="card-body">
+          <h5 class="card-title">{{book.title | shorten}}</h5>
+          <p class="card-text">{{book.price | currency}}</p>
+          <button mat-raised-button matTooltip="Click here for more details"
+                  matTooltipPosition="above"
+                  (click)="showDetails(book)">Details  <i class="fa fa-info-circle"></i></button>
+          <button mat-raised-button (click)="onAddedToCart(book)">Add to card</button>
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+  <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col"> </th>
+          <th scope="col">Product</th>
+          <th scope="col">Available</th>
+          <th scope="col" class="text-center">Quantity</th>
+          <th scope="col" class="text-right">Price</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let book of books; let i = index">
+          <td><img src="{{book.image}}" /> </td>
+          <td>{{book.title}}</td>
+          <td *ngIf="book.pieces>0"><i class="fa fa-check"></i></td>
+          <td *ngIf="book.pieces<1"><i class="fa fa-times"></i></td>
+          <td id="amount"><input [disabled]="book.pieces<1"
+                                 id="amountIn"
+                                 class="form-control"
+                                 type="number"
+                                 min="0"
+                                 value="1" #amount
+                                  (change)="calculatePrice(book.price, amount)" /></td>
+          <td *ngIf="book.pieces > 0" class="text-right" id="price"><span name="cena">
+            {{calculatePrice(book.price, amount) | currency}}
+            </span>
+          </td>
+          <td *ngIf="book.pieces <= 0" class="text-right"><span>{{ 0 | currency}}</span></td>
+          <td class="text-right"><button class="btn btn-sm btn-danger" (click)="delete(i)">
+            <i class="fa fa-trash">
+            </i> </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <h3 *ngIf="books.length > 0" style="float: right">Total: {{total() | currency}} </h3>
+      <h3 *ngIf="books.length == 0" style="float: right">Total:</h3>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div class="row">
+      <div class="col-sm-12  col-md-6">
+        <button class="btn btn-lg btn-block btn-primary" (click)="backToShopping()">Continue Shopping</button>
+      </div>
+      <div class="col-sm-12 col-md-6 text-right">
+        <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>

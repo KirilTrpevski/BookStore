@@ -1,0 +1,26 @@
+img{
+  max-width: 50px;
+  min-width: 50px;
+  max-height: 70px;
+  min-height: 70px;
+}
+#amount{
+  text-align: center;
+}
+#amountIn{
+  width: 45%;
+  display: inline-block;
+}
+
+#table {
+  margin-top: 10px;
+}
+.fa-check{
+  color: forestgreen;
+}
+.fa-times{
+  color: #bb0000;
+}
+.fa{
+  text-align: right;
+}

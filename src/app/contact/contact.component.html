@@ -1,0 +1,63 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-6">
+      <form>
+        <h2 style="text-align: center">Contact us</h2>
+        <p class="text-center">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+          a matter of hours to help you.</p>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" class="form-control" id="subject">
+        </div>
+        <div class="form-group">
+          <label for="desc">Description</label>
+          <textarea type="text" class="form-control" id="desc">
+            </textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send <i class="fa fa-paper-plane"></i></button>
+      </form>
+    </div>
+    <div class="col-xl-6 text-center">
+      <h2>Find us</h2>
+      <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+        <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map>
+    </div>
+  </div>
+  <br><br>
+  <div class="row justify-content-center">
+    <div class="col-10 col-sm-8 col-md-4 col-lg-4 col-xl-4" style="text-align: center">
+      <span><i class="fa fa-map-marker fa-5x"></i></span><br>
+      Skopje, Partizanski Odredi, br 24
+    </div>
+    <div class="col-10 col-sm-8 col-md-4 col-lg-4 col-xl-4" style="text-align: center">
+      <span>
+        <i class="fa fa-phone fa-5x"></i>
+      </span><br>
+      + 02 555 333
+    </div>
+    <div class="col-10 col-sm-8 col-md-4 col-lg-4 col-xl-4" style="text-align: center">
+      <span>
+        <i class="fa fa-envelope fa-5x"></i>
+      </span><br>
+      booksotre@books.com
+    </div>
+  </div><br>
+  <div class="row justify-content-center" id="socialcontainer">
+    <div class="col-8 col-sm-5 col-md-5 col-lg-8 col-xl-4" style="text-align: center;">
+      <a href="https://www.facebook.com/"><span><i class="fa fa-facebook fa-3x" id="social"></i></span></a>
+      <a href="https://www.instagram.com/"><span><i class="fa fa-instagram fa-3x" id="social"></i></span></a>
+      <a href="https://twitter.com/?lang=en"><span><i class="fa fa-twitter fa-3x" id="social"></i></span></a>
+      <a href="https://youtube.com/"><span><i class="fa fa-youtube fa-3x" id="social"></i></span></a>
+    </div>
+  </div>
+</div>

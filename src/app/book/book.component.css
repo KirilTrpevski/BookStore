@@ -1,6 +1,6 @@
 .card:hover{
   margin: 5px 5px 5px 5px;
-  transition: 0.6s;
+  transition: 0.2s;
 }
 .card{
   margin: 10px;

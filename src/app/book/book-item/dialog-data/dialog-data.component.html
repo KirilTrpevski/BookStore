@@ -9,5 +9,6 @@
 <mat-dialog-actions>
   <button mat-raised-button mat-dialog-close matTooltip="Close"
   matTooltipPosition="above">Close</button>
-  <button mat-raised-button (click)="addToCart(book)">Add</button>
+  <button mat-raised-button (click)="addToCart(book)" [disabled]="book.pieces<1">Add</button> <br>
+  <span class="text-muted" *ngIf="book.pieces<1">The product is out of stock</span>
 </mat-dialog-actions>

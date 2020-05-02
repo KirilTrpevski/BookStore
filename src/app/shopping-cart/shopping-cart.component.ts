@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ShoppingCardService} from './shopping-cart-service/shopping-card.service';
 import {Book} from '../shared/book.model';
 import {Router} from '@angular/router';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -10,6 +11,7 @@ import {Router} from '@angular/router';
 })
 export class ShoppingCartComponent implements OnInit {
   books: Book[] = [];
+  finalPrice: number;
 
   constructor(private cartService: ShoppingCardService,
               private router: Router) {
@@ -17,8 +19,9 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit() {
     this.books = this.cartService.getCartItems();
+    this.total();
     this.cartService.booksChanged
-      .subscribe((books) => {
+      .subscribe((books: Book[]) => {
         this.books = books;
       });
   }
@@ -35,21 +38,27 @@ export class ShoppingCartComponent implements OnInit {
 
   delete(index) {
     this.cartService.deleteFromCart(index);
+    this.total();
     this.cartService.booksChanged
-      .subscribe((books) => {
+      .subscribe((books: Book[]) => {
         this.books = books;
       });
   }
 
+
+
   total() {
-    const element = document.getElementsByName('cena');
-    let sum = 0;
-    // console.log(element.length);
-    for (let i = 0; i < element.length; i++) {
-      sum += +element[i].innerText.slice(1, element[i].innerText.length);
-    }
-    console.log(sum);
-    return sum.toFixed(2);
+    setTimeout(() => {
+      const el = document.getElementsByName("cena");
+      let sum=0;
+      for(let i=0; i<el.length; i++){
+        // console.log(el.item(i).innerText.slice(1, el.item(i).innerText.length));
+        sum+= +el.item(i).innerText.slice(1, el.item(i).innerText.length)
+      }
+      console.log(sum.toFixed(2));
+      this.finalPrice = +sum.toFixed(2);
+      return sum.toFixed(2);
+    }, 100);
   }
 
-}
+  }

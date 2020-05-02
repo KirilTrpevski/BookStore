@@ -12,7 +12,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { AddNewComponent } from './add-new/add-new.component';
 import {BookService} from './book/book-service/book.service';
 import {ShortenPipe} from './shared/pipes/shorten.pipe';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -43,23 +43,24 @@ import { AuthComponent } from './auth/auth.component';
     NewBookAddedDialogComponent,
     AuthComponent
   ],
-  imports: [
-    BrowserModule,
-    RouterModule,
-    AppRouting,
-    FormsModule,
-    HttpClientModule,
-    MatDialogModule,
-    BrowserAnimationsModule,
-    MatSlideToggleModule,
-    MatCheckboxModule,
-    MatIconModule,
-    MatButtonModule,
-    MatTooltipModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBlaqh37CiAqmDLXC1iJI5UnPPAkN53lM0'
-    })
-  ],
+    imports: [
+        BrowserModule,
+        RouterModule,
+        AppRouting,
+        FormsModule,
+        HttpClientModule,
+        MatDialogModule,
+        BrowserAnimationsModule,
+        MatSlideToggleModule,
+        MatCheckboxModule,
+        MatIconModule,
+        MatButtonModule,
+        MatTooltipModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyBlaqh37CiAqmDLXC1iJI5UnPPAkN53lM0'
+        }),
+        ReactiveFormsModule
+    ],
   providers: [BookService],
   bootstrap: [AppComponent]
 })

@@ -4,10 +4,6 @@ import {Book} from '../shared/book.model';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogDataComponent} from './book-item/dialog-data/dialog-data.component';
 
-
-export interface DialogData {
-  animal: 'panda' | 'unicorn' | 'lion';
-}
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
@@ -15,8 +11,6 @@ export interface DialogData {
 })
 export class BookComponent implements OnInit {
   books: Book[] = [];
-
-  @ViewChild('secondDialog', {static: true}) dialogRef: TemplateRef<any>;
 
   constructor(private bookService: BookService, private dialog: MatDialog) { }
 
@@ -27,6 +21,7 @@ export class BookComponent implements OnInit {
       this.books = resData;
     }));
   }
+
 
   showDetails(book: Book) {
     // this.bookService.bookDetails(book);

@@ -10,3 +10,6 @@ img{
 h1{
   display: inline-block;
 }
+.dialog{
+  font-family: "Arial";
+}

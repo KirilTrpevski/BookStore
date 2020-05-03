@@ -8,6 +8,7 @@
   display: inline-block;
   border-radius: 8px;
   box-shadow: 10px 10px 5px grey;
+  font-family: "Arial";
 }
 .card-img-top{
   min-width: 100px;

@@ -58,7 +58,7 @@ export class ShoppingCartComponent implements OnInit {
       console.log(sum.toFixed(2));
       this.finalPrice = +sum.toFixed(2);
       return sum.toFixed(2);
-    }, 100);
+    }, 50);
   }
 
   }

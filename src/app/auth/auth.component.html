@@ -6,7 +6,15 @@
     <div style="text-align: center">
       <app-spinner *ngIf="isLoading"></app-spinner>
     </div>
-    <form *ngIf="!isLoading" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <div class="alert alert-info mt-4">
+      <h5>Here you can login to add or update books in the store.</h5>
+    </div>
+    <div class="card mt-4">
+      <h4 class="card-header">
+        This is admin login.
+      </h4>
+    <form *ngIf="!isLoading" #form="ngForm" (ngSubmit)="onSubmit(form)"
+    class="mr-3 ml-3 mt-3">
       <div class="form-group">
         <label>Email:</label>
         <input class="form-control" type="email" id="email"
@@ -27,5 +35,6 @@
         <button class=" btn btn-primary" type="submit" [disabled]="!form.valid">Login</button>
       </div>
     </form>
+  </div>
   </div>
 </div>

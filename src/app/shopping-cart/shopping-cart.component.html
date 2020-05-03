@@ -1,48 +1,56 @@
-
-
 <div class="row justify-content-center">
   <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
     <div class="table-responsive">
       <table class="table">
         <thead>
-        <tr>
-          <th scope="col"> </th>
-          <th scope="col">Product</th>
-          <th scope="col">Available</th>
-          <th scope="col" class="text-center">Quantity</th>
-          <th scope="col" class="text-right">Price</th>
-          <th></th>
-        </tr>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Product</th>
+            <th scope="col">Available</th>
+            <th scope="col" class="text-center">Quantity</th>
+            <th scope="col" class="text-right">Price</th>
+            <th></th>
+          </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let book of books; let i = index">
-          <td><img src="{{book.image}}" /> </td>
-          <td>{{book.title}}</td>
-          <td *ngIf="book.pieces>0"><i class="fa fa-check"></i></td>
-          <td *ngIf="book.pieces<1"><i class="fa fa-times"></i></td>
-          <td id="amount"><input [disabled]="book.pieces<1"
-                                 id="amountIn"
-                                 class="form-control"
-                                 type="number"
-                                 min="0"
-                                 value="1" #amount
-                                 (change)="calculatePrice(book.price, amount); total()"/></td>
-          <td *ngIf="book.pieces > 0" class="text-right" id="price" name="cena">
-            <span>
-            {{calculatePrice(book.price, amount) | currency}}
-          </span>
-          </td>
-          <td *ngIf="book.pieces <= 0" class="text-right">
-            {{0 | currency }}</td>
-          <td class="text-right"><button class="btn btn-sm btn-danger" (click)="delete(i)">
-            <i class="fa fa-trash">
-            </i> </button>
-          </td>
-        </tr>
+          <tr *ngFor="let book of books; let i = index">
+            <td><img src="{{ book.image }}" /></td>
+            <td>{{ book.title }}</td>
+            <td *ngIf="book.pieces > 0"><i class="fa fa-check"></i></td>
+            <td *ngIf="book.pieces < 1"><i class="fa fa-times"></i></td>
+            <td id="amount">
+              <input
+                [disabled]="book.pieces < 1"
+                id="amountIn"
+                class="form-control"
+                type="number"
+                min="0"
+                value="1"
+                #amount
+                (change)="calculatePrice(book.price, amount); total()"
+              />
+            </td>
+            <td *ngIf="book.pieces > 0" class="text-right" name="cena">
+              <span>
+                {{ calculatePrice(book.price, amount) | currency }}
+              </span>
+            </td>
+            <td *ngIf="book.pieces < 1" class="text-right">
+              {{ 0 | currency }}
+            </td>
+            <td class="text-right">
+              <button class="btn btn-sm btn-danger" (click)="delete(i)">
+                <i class="fa fa-trash"> </i>
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
-      <span class="text-right" style="font-size: 22px; font-weight: bold; float: right;">
-        {{finalPrice | currency}}
+      <span
+        class="text-right"
+        style="font-size: 22px; font-weight: bold; float: right;"
+      >
+        Total: {{ finalPrice | currency }}
       </span>
     </div>
   </div>
@@ -50,11 +58,21 @@
 <div class="row justify-content-center">
   <div class="col-8">
     <div class="row">
-      <div class="col-sm-12  col-md-6">
-        <button class="btn btn-lg btn-block btn-primary rounded-0" (click)="backToShopping()">Continue Shopping</button>
+      <div class="col-sm-12 col-md-6">
+        <button
+          class="btn btn-lg btn-block btn-primary rounded-0"
+          (click)="backToShopping()"
+        >
+          Continue Shopping
+        </button>
       </div>
       <div class="col-sm-12 col-md-6 text-right">
-        <button class="btn btn-lg btn-block btn-success text-uppercase rounded-0" (click)="total()">Checkout</button>
+        <button
+          class="btn btn-lg btn-block btn-success text-uppercase rounded-0"
+          [disabled]="finalPrice < 1"
+        >
+          Checkout
+        </button>
       </div>
     </div>
   </div>

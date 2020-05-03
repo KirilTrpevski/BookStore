@@ -1,14 +1,26 @@
-<h1>{{book.title}}</h1>
-<mat-dialog-content>
-<p class="desc">{{book.description}}</p>
-  <p>Author: {{book.author}}</p>
-  <p>Genre: {{book.genre}}</p>
-  <p>Year of publication <b>(yyyy/mm/dd)</b>: {{book.year}}</p>
-  <p>Price: {{book.price | currency}}</p>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-raised-button mat-dialog-close matTooltip="Close"
-  matTooltipPosition="above">Close</button>
-  <button mat-raised-button (click)="addToCart(book)" [disabled]="book.pieces<1">Add</button> <br>
-  <span class="text-muted" *ngIf="book.pieces<1">The product is out of stock</span>
-</mat-dialog-actions>
+<div class="dialog">
+  <h1>{{ book.title }}</h1>
+  <mat-dialog-content>
+    <p class="desc">{{ book.description }}</p>
+    <p>Author: {{ book.author }}</p>
+    <p>Genre: {{ book.genre }}</p>
+    <p>Year of publication <b>(yyyy/mm/dd)</b>: {{ book.year }}</p>
+    <p>Price: {{ book.price | currency }}</p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button
+      mat-raised-button
+      mat-dialog-close
+      matTooltip="Close"
+      matTooltipPosition="above"
+    >
+      Close
+    </button>
+    <button
+      mat-raised-button
+      (click)="addToCart(book)"
+    >
+      Add
+    </button>
+  </mat-dialog-actions>
+</div>

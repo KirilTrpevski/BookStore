@@ -16,6 +16,7 @@ style="margin-top: 20px;">
                   matTooltipPosition="above"
                   (click)="showDetails(book)">Details  <i class="fa fa-info-circle"></i></button>
           <button mat-raised-button (click)="onAddedToCart(book)">Add to card</button>
+          <button mat-raised-button *ngIf="isAuthenticated">Edit</button>
         </div>
       </div>
   </div>

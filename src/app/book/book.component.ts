@@ -3,6 +3,7 @@ import {BookService} from './book-service/book.service';
 import {Book} from '../shared/book.model';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogDataComponent} from './book-item/dialog-data/dialog-data.component';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-book',
@@ -11,8 +12,11 @@ import {DialogDataComponent} from './book-item/dialog-data/dialog-data.component
 })
 export class BookComponent implements OnInit {
   books: Book[] = [];
+  isAuthenticated = false;
 
-  constructor(private bookService: BookService, private dialog: MatDialog) { }
+  constructor(private bookService: BookService,
+    private dialog: MatDialog,
+    private authService: AuthService) { }
 
   ngOnInit() {
     this.bookService.onFetchBooks()
@@ -20,8 +24,12 @@ export class BookComponent implements OnInit {
       console.log(resData);
       this.books = resData;
     }));
-  }
 
+    this.authService.user
+    .subscribe((user) => {
+      this.isAuthenticated = user ? true : false;
+    })
+  }
 
   showDetails(book: Book) {
     // this.bookService.bookDetails(book);

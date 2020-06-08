@@ -24,3 +24,8 @@ button{
 #info,strong{
   padding: 40px;
 }
+
+.matButtons:hover{
+  background: darkgray;
+  transition: 0.5s;
+}

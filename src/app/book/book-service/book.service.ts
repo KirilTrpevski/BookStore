@@ -3,9 +3,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {exhaustMap, map, take} from 'rxjs/operators';
 import {ShoppingCardService} from '../../shopping-cart/shopping-cart-service/shopping-card.service';
-import {MatDialog} from '@angular/material/dialog';
-import {SuccessComponent} from '../book-item/sucess/success.component';
-import {NewBookAddedDialogComponent} from '../book-item/new-book-added-dialog/new-book-added-dialog.component';
 import {AuthService} from '../../auth/auth.service';
 
 
@@ -13,7 +10,7 @@ import {AuthService} from '../../auth/auth.service';
 export class BookService {
 
   constructor(private http: HttpClient, private cardService: ShoppingCardService,
-              private dialog: MatDialog, private authService: AuthService) {
+              private authService: AuthService) {
   }
 
   onPost(receivedBook: Book) {
@@ -42,22 +39,5 @@ export class BookService {
 
   onAddedBookToCart(book: Book) {
     this.cardService.addedToCart(book);
-  }
-
-  sucessDialog(book: Book) {
-    this.dialog.open(SuccessComponent, {
-      data: book,
-      width: '300',
-      height: '200'
-    });
-  }
-
-  newBookAddedDialog() {
-    this.dialog.open(NewBookAddedDialogComponent);
-  }
-  dialogCloses() {
-    setTimeout(() => {
-      this.dialog.closeAll();
-    }, 1300);
   }
 }

@@ -20,12 +20,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatIconModule} from '@angular/material/icon';
-import { DialogDataComponent } from './book/book-item/dialog-data/dialog-data.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {SuccessComponent} from './book/book-item/sucess/success.component';
-import { NewBookAddedDialogComponent } from './book/book-item/new-book-added-dialog/new-book-added-dialog.component';
+import {BookDetailComponent} from './book/book-details/book-details.component'
 import { AuthComponent } from './auth/auth.component';
+import { SuccessDialogComponent } from './book/success-dialog/success-dialog/success-dialog.component';
+import { CarouselComponent } from './book/carousel/carousel.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CarouselProductsComponent } from './book/carousel/carousel-products/carousel-products.component';
 
 @NgModule({
   declarations: [
@@ -38,10 +40,11 @@ import { AuthComponent } from './auth/auth.component';
     AddNewComponent,
     ShortenPipe,
     SpinnerComponent,
-    DialogDataComponent,
-    SuccessComponent,
-    NewBookAddedDialogComponent,
-    AuthComponent
+    AuthComponent,
+    BookDetailComponent,
+    SuccessDialogComponent,
+    CarouselComponent,
+    CarouselProductsComponent,
   ],
     imports: [
         BrowserModule,
@@ -59,7 +62,8 @@ import { AuthComponent } from './auth/auth.component';
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyBlaqh37CiAqmDLXC1iJI5UnPPAkN53lM0'
         }),
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgbModule
     ],
   providers: [BookService],
   bootstrap: [AppComponent]

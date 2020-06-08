@@ -1,3 +1,14 @@
+<!--<div class="row mb-5 h-75">-->
+<!--  <div class="col-xl-12">-->
+<!--    <app-carousel></app-carousel>-->
+<!--    </div>-->
+<!--  </div>-->
+<div class="row justify-content-center mt-3">
+  <div class="col-md-12">
+    <app-carousel-products></app-carousel-products>
+  </div>
+</div>
+
 <div class="row justify-content-center" *ngIf="books.length == 0"
 style="margin-top: 20px;">
   <div class="col-8, col-sm-8 col-md-8 col-lg-8 col-xl-8"
@@ -14,10 +25,21 @@ style="margin-top: 20px;">
           <p class="card-text">{{book.price | currency}}</p>
           <button mat-raised-button matTooltip="Click here for more details"
                   matTooltipPosition="above"
-                  (click)="showDetails(book)">Details  <i class="fa fa-info-circle"></i></button>
-          <button mat-raised-button (click)="onAddedToCart(book)">Add to card</button>
+                  class="rounded-0 matButtons"
+                  (click)="showDetails(book)">Details
+                  <i class="fa fa-info-circle"></i>
+                </button>
+          <button mat-raised-button
+          (click)="onAddedToCart(book)"
+          class="rounded-0 matButtons">Add to card</button>
           <button mat-raised-button *ngIf="isAuthenticated">Edit</button>
         </div>
       </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <book-details [book]='bookDetails' *ngIf="bookDetails" (close)="closeDialog()"></book-details>
+    <app-success-dialog [book]='bookAddedToCart' *ngIf="show"></app-success-dialog>
   </div>
 </div>

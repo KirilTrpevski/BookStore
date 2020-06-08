@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {BookService} from '../book/book-service/book.service';
 
@@ -21,8 +21,6 @@ export class AddNewComponent implements OnInit {
         console.log(books);
       });
     // console.log(this.form.value);
-    this.bookService.newBookAddedDialog();
-    this.bookService.dialogCloses();
     this.form.reset();
   }
 

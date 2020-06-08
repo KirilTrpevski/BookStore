@@ -12,4 +12,8 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  scrol(el: HTMLElement) {
+    el.scrollIntoView({behavior: 'smooth'});
+  }
 }

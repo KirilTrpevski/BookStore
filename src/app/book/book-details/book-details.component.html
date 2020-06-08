@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col">
+  <div class="backdrop" (click)="onclose()"></div>
+  <div class="alert-box">
+    <h4>{{book.title}}</h4>
+    <p style="width: 60%;">{{book.description}}</p>
+    <p><b>Genre:</b> {{book.genre}}</p>
+    <p><b>Author: </b>{{book.author}}</p>
+    <p><b>Year: </b>{{book.year}} <b>(yyyy-mm-dd)</b></p>
+    <p><b>Price: </b>{{book.price | currency}}</p>
+    <div class="alert-box-actions">
+      <button class="btn btn-outline-info rounded-0" (click)="onclose()">Close</button>
+      <button class="btn btn-outline-info rounded-0" (click)="addToCart(book)">Add to cart</button>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,18 @@
+.carousel-control{
+  position: absolute;
+  top: 45%;
+}
+
+img{
+  max-width: 180px;
+  max-height: 270px;
+}
+
+.sale{
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  font-size: 27px;
+  transform: rotate(45deg);
+  width: 70px;
+}

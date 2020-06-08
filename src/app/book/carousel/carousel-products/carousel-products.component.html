@@ -1,0 +1,60 @@
+<div class="container-fluid mb-4 pr-0 pl-0">
+  <book-details [book]="bookDetails" *ngIf="show" (close)="closeDialog()"></book-details>
+  <div class="row justify-content-center">
+    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1">
+          <a href="#carousel-multi-item"
+          class="carousel-control"
+          role="button"
+          data-slide="prev">
+           <i class="fa fa-chevron-left fa-3x"></i>
+        </a>
+    </div>
+    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
+      <div class="carousel slide carousel-multi-item" id="carousel-multi-item">
+
+        <div class="carousel-inner" role="listbox">
+
+          <div class="carousel-item active">
+            <div class="row text-center">
+              <div class="col-xl-3 col-lg-3 col-md-5 col-sm-1"
+              *ngFor="let book of books.slice(0, 4); let i = index">
+              <div>
+                <img src="{{book.image}}" (click)="showDetails(book)" style="cursor: pointer;">
+                <span class="badge badge-danger sale" (click)="showDetails(book)" style="cursor: pointer;">Sale</span>
+                <p><del><b>{{book.price | currency}}</b></del>
+                <br>
+                  <span style="color: red;">{{book.price - book.price * 0.15 | currency}}</span>
+                </p>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="row text-center">
+              <div class="col-xl-3 col-lg-3 col-md-5 col-sm-1"
+              *ngFor="let book of books.slice(4, 8); let i = index">
+              <div>
+                <img src="{{book.image}}" (click)="showDetails(book)" style="cursor: pointer;">
+                <span class="badge badge-danger sale" (click)="showDetails(book)" style="cursor: pointer;">Sale</span>
+                <p style="padding-bottom: 0;"><del><b>{{book.price | currency}}</b></del>
+                <br>
+                  <span style="color: red; padding: 0px;">{{book.price - book.price * 0.15 | currency}}</span>
+                </p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1">
+      <a href="#carousel-multi-item"
+          class="carousel-control"
+          role="button"
+          data-slide="next">
+           <i class="fa fa-chevron-right fa-3x"></i>
+        </a>
+    </div>
+  </div>
+</div>
